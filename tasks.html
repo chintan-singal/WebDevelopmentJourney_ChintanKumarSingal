@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Task Levels</title>
+  <link rel="stylesheet" href="stylejstask.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="nav-home">
+      <a href="index.html" class="home-link">Home</a>
+    </nav>
+    <h1>JavaScript Task Page</h1>
+    <p class="header-subtitle">Interactive JavaScript Learning Journey</p>
+    <div class="student-info">
+      <p class="student-name">Chintan Kumar Singal</p>
+      <p class="enrollment">SAU/CS/BTECH(CSE)/2024/27</p>
+    </div>
+  </header>
+
+  <div class="level">
+    <h2>Level 1</h2>
+    <div class="tasks">
+      <div class="task">
+        <h3>Task 1: Variables & Data Types</h3>
+        <form onsubmit="handleLevel1Task1(event)">
+          <label>Your Name: <input type="text" id="nameInput" required></label><br>
+          <label>Number: <input type="number" id="numberInput" required></label><br>
+          <button type="submit">Submit</button>
+        </form>
+        <p id="output1"></p>
+      </div>
+
+      <div class="task">
+        <h3>Task 2: Conditions & Loops</h3>
+        <form onsubmit="handleLevel1Task2(event)">
+          <label>Enter Number (Even/Odd): <input type="number" id="evenOddInput" required></label>
+          <button type="submit">Check</button>
+        </form>
+        <div id="output2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 2 -->
+  <div class="level">
+    <h2>Level 2</h2>
+    <div class="tasks">
+      <div class="task">
+        <h3>Task 1: Multiplication Table</h3>
+        <form onsubmit="handleLevel2Task1(event)">
+          <label>Enter a Number: <input type="number" id="tableInput" required></label>
+          <button type="submit">Generate</button>
+        </form>
+        <ul id="tableOutput"></ul>
+      </div>
+
+      <div class="task">
+        <h3>Task 2: Simple Calculator</h3>
+        <form onsubmit="handleLevel2Task2(event)">
+          <input type="number" id="calcNum1" placeholder="First Number" required>
+          <select id="calcOperator">
+            <option value="+">+</option>
+            <option value="-">−</option>
+            <option value="*">×</option>
+            <option value="/">÷</option>
+          </select>
+          <input type="number" id="calcNum2" placeholder="Second Number" required>
+          <button type="submit">Calculate</button>
+        </form>
+        <p id="calcResult"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level">
+    <h2>Level 3</h2>
+    <div class="tasks">
+      <div class="task">
+        <h3>Task 1: Calculate Square</h3>
+        <form onsubmit="handleLevel3Task1(event)">
+          <input type="number" id="squareInput" placeholder="Enter a number" required>
+          <button type="submit">Calculate Square</button>
+        </form>
+        <p id="squareOutput"></p>
+      </div>
+
+      <div class="task">
+        <h3>Task 2: Color Mixer</h3>
+        <form onsubmit="handleLevel3Task2(event)">
+          <input type="color" id="color1" value="#ff0000">
+          <input type="color" id="color2" value="#0000ff">
+          <button type="submit">Mix Colors</button>
+        </form>
+        <div id="colorOutput"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="level">
+    <h2>Level 4</h2>
+    <div class="tasks">
+      <div class="task">
+        <h3>Task 1: Digital Clock</h3>
+        <div id="localClock">
+          <h4>Local Time</h4>
+          <div class="time"></div>
+        </div>
+      </div>
+
+      <div class="task">
+        <h3>Task 2: Light Bulb</h3>
+        <div class="bulb" id="bulb"></div>
+        <button onclick="toggleBulb()">Toggle Light</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 5 -->
+  <div class="level">
+    <h2>Level 5</h2>
+    <div class="tasks">
+      <div class="task">
+        <h3>Task 1: Interactive Counter</h3>
+        <div class="counter">
+          <button onclick="decrementCounter()">-</button>
+          <span id="counterValue">0</span>
+          <button onclick="incrementCounter()">+</button>
+        </div>
+      </div>
+
+      <div class="task">
+        <h3>Task 2: Show/Hide Password</h3>
+        <div class="password-container">
+          <input type="password" id="passwordField">
+          <button onclick="togglePassword()">👁️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 6 -->
+  <div class="level">
+    <h2>Level 6</h2>
+    <div class="tasks">
+      <div class="task">
+        <h3>Task 1: DOM Manipulation</h3>
+        <div id="domContainer">
+          <button onclick="addElement()">Add Element</button>
+          <div id="elementList"></div>
+        </div>
+      </div>
+
+      <div class="task">
+        <h3>Task 2: Form Validation</h3>
+        <form id="validationForm" onsubmit="validateForm(event)">
+          <input type="text" id="username" placeholder="Username">
+          <input type="email" id="email" placeholder="Email">
+          <input type="password" id="password" placeholder="Password">
+          <button type="submit">Submit</button>
+        </form>
+        <div id="validationMessage"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 7 -->
+  <div class="level">
+    <h2>Level 7</h2>
+    <div class="tasks">
+      <div class="task">
+        <h3>Task 1: Live Form Validation</h3>
+        <form id="liveValidationForm">
+          <input type="text" id="userName" placeholder="Username" oninput="liveValidate('userName')">
+          <span class="validation-msg" id="userNameMsg"></span>
+          <input type="email" id="userEmail" placeholder="Email" oninput="liveValidate('userEmail')">
+          <span class="validation-msg" id="userEmailMsg"></span>
+        </form>
+      </div>
+
+      <div class="task">
+        <h3>Task 2: Interactive Registration</h3>
+        <form id="registrationForm" onsubmit="handleRegistration(event)">
+          <input type="text" name="fullName" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <select name="country">
+            <option value="">Select Country</option>
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+            <option value="canada">Canada</option>
+          </select>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 8 -->
+  <div class="level">
+    <h2>Level 8</h2>
+    <div class="tasks">
+      <div class="task">
+        <h3>Task 1: Quote Generator</h3>
+        <div id="quoteContainer">
+          <p id="quote"></p>
+          <p id="author"></p>
+          <button onclick="generateQuote()">New Quote</button>
+        </div>
+      </div>
+
+      <div class="task">
+        <h3>Task 2: Task Manager</h3>
+        <div class="task-manager">
+          <input type="text" id="taskInput" placeholder="New task...">
+          <button onclick="addTask()">Add Task</button>
+          <ul id="taskList"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 9 -->
+  <div class="level">
+    <h2>Level 9</h2>
+    <div class="tasks">
+      <div class="task">
+        <h3>Task 1: Feedback Collector</h3>
+        <div class="feedback-form">
+          <select id="feedbackType">
+            <option value="bug">Bug Report</option>
+            <option value="feature">Feature Request</option>
+            <option value="other">Other</option>
+          </select>
+          <textarea id="feedbackText" placeholder="Your feedback..."></textarea>
+          <button onclick="submitFeedback()">Submit</button>
+        </div>
+      </div>
+
+      <div class="task">
+        <h3>Task 2: Notes App</h3>
+        <div class="notes-app">
+          <textarea id="noteInput" placeholder="Write your note..."></textarea>
+          <button onclick="saveNote()">Save Note</button>
+          <div id="notesList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 10 -->
+  <div class="level">
+    <h2>Level 10</h2>
+    <div class="tasks">
+      <div class="task">
+        <h3>Task 1: Daily Journal</h3>
+        <div class="journal-app">
+          <input type="date" id="journalDate">
+          <textarea id="journalEntry" placeholder="Write your journal entry..."></textarea>
+          <button onclick="saveJournalEntry()">Save Entry</button>
+          <div id="journalEntries"></div>
+        </div>
+      </div>
+
+      <div class="task">
+        <h3>Task 2: Welcome Back</h3>
+        <div class="welcome-back">
+          <input type="text" id="visitorName" placeholder="Enter your name">
+          <button onclick="saveVisitor()">Save</button>
+          <p id="welcomeMessage"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 11 -->
+  <div class="level">
+    <h2>Level 11</h2>
+    <div class="tasks">
+      <div class="task">
+        <h3>Task 1: User Preferences</h3>
+        <div class="preferences">
+          <h4>Theme</h4>
+          <select id="themeSelect" onchange="updatePreferences()">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+          <h4>Font Size</h4>
+          <input type="range" id="fontSize" min="12" max="24" onchange="updatePreferences()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="acknowledgments">
+      <h3>Special Thanks</h3>
+      <p>To our esteemed teachers:</p>
+      <div class="teachers">
+        <div class="teacher">Mr. Ankit Agarwal</div>
+        <div class="teacher">Mr. Amit Kumar Sharma</div>
+      </div>
+      <p class="gratitude">For their guidance and teachings in JavaScript and Web Development</p>
+    </div>
+  </footer>
+
+  <script src="tasks.js"></script>
+</body>
+</html>
